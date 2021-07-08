@@ -15,10 +15,10 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:id] = user.id
-      redirect_to users_url(user)
+      redirect_to user_path(user)
     else
       flash[:errors] = user.errors.full_messages
-      redirect_to new_users_url
+      redirect_to new_users_path
     end
   end
 
